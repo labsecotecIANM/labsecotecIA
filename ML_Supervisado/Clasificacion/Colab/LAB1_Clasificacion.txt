@@ -2,6 +2,7 @@
 
 #Se importan la librerias a utilizar
 from sklearn import datasets
+import matplotlib.pyplot as plt
 
 ########## PREPARAR LA DATA ##########
 
