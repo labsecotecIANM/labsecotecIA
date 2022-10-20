@@ -10,7 +10,19 @@ import matplotlib.pyplot as plt  #Librería para plot
 dataset = datasets.load_breast_cancer()
 print(dataset)
 
-# CONVERTIR DATOS BRUTOS RAW EN DATAFRAME
+########## ENTENDIMIENTO O ANÁLISIS DE LA DATA ##########
+
+#Verifico la información contenida en el dataset
+print('Información en el dataset:')
+print(dataset.keys())
+print()
+#data = datos independientes
+#target = columna de etiquetas o respuestas
+#target_names = nombres de las variables que se encuentran en la columna target
+#DESCR = descripción total del dataset
+#feature_name = nombre de la columna de los datos
+
+####### CONVERTIR DATOS BRUTOS RAW EN DATAFRAME
 
 import numpy as np
 import pandas as pd
@@ -24,34 +36,31 @@ def answer_one():
 
 answer_one()
 
-########## ENTENDIMIENTO O ANÁLISIS DE LA DATA ##########
 
-#Verifico la información contenida en el dataset
-print('Información en el dataset:')
-print(dataset.keys())
-print()
-#Data = datos independientes
-#target = columna de etiquetas o respuestas
-#target_names = nombres de las variables que se encuentran en la columna target
-#DESCR = descripción total del dataset
-#feature_name = nombre de la columna de los datos
-
-###############################################################################
+#########################################
 #Verifico las características del dataset
+#Se describen los atributos o variables independientes
+#Se describen valores como la media, error estandar y peor
+#Con estas caracteristicas se describes si el tumor es benigno o maligno
+#El dataset esta bien estructurado sin errores de contenido o espacios en blanco
+
 print('Características del dataset:')
 print(dataset.DESCR)
 
+#################################
+#Identificar las variables que se van a utilizar en el modelo
 #Seleccionamos todas las columnas
 X = dataset.data
 
 #Defino los datos correspondientes a las etiquetas
+#La columna target solo tienen dos valores 0=benigno   1=maligno
 y = dataset.target
 
 ########## IMPLEMENTACIÓN DE BOSQUES ALEATORIOS CLASIFICACIÓN ##########
 
 from sklearn.model_selection import train_test_split
 
-#Separo los datos de "train" en entrenamiento y prueba para probar los algoritmos
+#Separo el 20% los datos de "train" en entrenamiento y prueba para probar los algoritmos
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 #Defino el algoritmo a utilizar
