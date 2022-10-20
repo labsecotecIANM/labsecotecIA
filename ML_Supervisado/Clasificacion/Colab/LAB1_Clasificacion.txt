@@ -1,11 +1,11 @@
 ########## LIBRERÍAS A UTILIZAR ##########
 
 #Se importan la librerias a utilizar
-from sklearn import datasets
-import matplotlib.pyplot as plt
+from sklearn import datasets #Dentro de datasets se encuentra las bases de datos
+import matplotlib.pyplot as plt  #Librería para plot
 
 ########## PREPARAR LA DATA ##########
-
+#Dataset de diagnósticos de cancer de mama#
 #Importamos los datos de la misma librería de scikit-learn
 dataset = datasets.load_breast_cancer()
 print(dataset)
@@ -24,13 +24,19 @@ def answer_one():
 
 answer_one()
 
-########## ENTENDIMIENTO DE LA DATA ##########
+########## ENTENDIMIENTO O ANÁLISIS DE LA DATA ##########
 
 #Verifico la información contenida en el dataset
 print('Información en el dataset:')
 print(dataset.keys())
 print()
+#Data = datos independientes
+#target = columna de etiquetas o respuestas
+#target_names = nombres de las variables que se encuentran en la columna target
+#DESCR = descripción total del dataset
+#feature_name = nombre de la columna de los datos
 
+###############################################################################
 #Verifico las características del dataset
 print('Características del dataset:')
 print(dataset.DESCR)
