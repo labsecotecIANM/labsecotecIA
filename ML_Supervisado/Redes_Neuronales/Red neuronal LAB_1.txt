@@ -1,0 +1,57 @@
+Algoritmo de Aprendizaje Supervisado para convertir KM a M usando una red neuronal 
+
+Importar librerias IA Tensorflow y Numpy para arreglos
+
+import tensorflow as tf
+import numpy as np #arreglos numericos
+
+Crear los datos de entrada y salida mediante arreglos, para entrenar al algoritmo en cuanto a la conversión de Km a m
+
+tablakm = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], dtype=float)
+tablam = np.array([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000], dtype=float)
+
+Crear el modelo de ML
+
+capa_entrada = tf.keras.layers.Dense(units=1, input_shape=[1])
+capa_salida = tf.keras.layers.Dense(units=1)
+modelo = tf.keras.Sequential([capa_entrada, capa_salida])
+
+
+Ajustar los pesos y sesgos para manejo de error cuadratico medio
+
+modelo.compile(
+    optimizer=tf.keras.optimizers.Adam(0.1), #Ajustamos los pesos y sesgos de manera eficiente usando Adam
+    loss='mean_squared_error' #Manejo de errores mediante el error cuadratico medio
+)
+
+
+
+Fase de entrenamiento de neuronas
+
+print("Entrenamiento")
+historial = modelo.fit(tablakm, tablam, epochs=400) #La función fit permite entrenar la cantidad de veces que sea posible a la red neuronal
+print("Proceso terminado ")
+
+Analizando función de perdida "loss / Mean_squared_error" para identificar el valor óptimo de entreamiento
+
+import matplotlib.pyplot as plt
+plt.xlabel("# Intentos de entrenamiento")
+plt.ylabel("Perdida")
+plt.plot(historial.history["loss"])
+
+
+Fase de "Predicción"
+
+print("Inicio de predicción")
+resultado = modelo.predict([6.0]) #validamos con 6 km
+print("Restulado en metros es: " + str(resultado) + "m")
+
+
+Revisión de pesos y sesgo asignado a la variable "capa_salida"
+print("Variables internas del modelo")
+print(capa_salida.get_weights())
+
+
+
+
+
