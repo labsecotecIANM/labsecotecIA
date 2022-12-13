@@ -1,3 +1,7 @@
 https://github.com/scikit-learn/scikit-learn/tree/dc580a8ef5ee2a8aea80498388690e2213118efd/sklearn/datasets/data
 
 https://www.kaggle.com/datasets/vikrishnan/boston-house-prices
+
+
+  from sklearn import datasets
+      boston = datasets.load_boston()
