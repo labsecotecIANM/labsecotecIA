@@ -1,0 +1,10 @@
+
+df = datos[['Unnamed: 6','Unnamed: 8','Unnamed: 10','Unnamed: 7']]
+df
+
+
+
+edad = datos['Unnamed: 6'].values
+rad = datos['Unnamed: 8'].values
+PTRATIO = datos['Unnamed: 10'].values
+DIS = datos['Unnamed: 7'].values
